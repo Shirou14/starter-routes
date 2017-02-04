@@ -60,3 +60,12 @@ $route['([A-Za-z]{4})/bingo'] = 'bingo/index';
 // Routes to the gimmie function in First.php and takes the num
 // from the parametrs in the html page, passing to parameter $1
 $route['show/(:num)'] = 'first/gimmie/$1';
+$route['dunno'] = function() {
+	$source = '../data/archer.png'; // an image you provide, outside of "public"!
+	// set the mime type for that image (jpeg, png, etc)
+	header("Content-type: image/png"); 
+	header('Content-Disposition: inline');
+	readfile($source); // dish it
+	die(); // and we don't have to go any further
+};                         
+?>
