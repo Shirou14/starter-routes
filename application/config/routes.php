@@ -52,5 +52,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+// Routes to the shucks function in Welcome.php
 $route['lock/(:any)/(:any)'] = 'welcome/shucks';
+// Routes to the zzz function in First.php
 $route['sleep'] = 'first/zzz';
+// Routes to the gimmie function in First.php and takes the num
+// from the parametrs in the html page, passing to parameter $1
+$route['show/(:num)'] = 'first/gimmie/$1';
