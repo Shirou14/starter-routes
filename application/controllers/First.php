@@ -22,5 +22,16 @@ class First extends Application
 		$this->data = array_merge($this->data, $source);
 		$this->render();	
 	}
+	
+	public function gimmie($num){
+		// this is the view we want shown
+		$this->data['pagebody'] = 'justone';
+		// Grab the author to pass to our view
+		$source = $this->quotes->get($num);
+        // merge data with record (both associative arrays)
+		$this->data = array_merge($this->data, $source);
+		$this->render();	
+		
+	}
 }
 ?>
