@@ -25,5 +25,5 @@ class Bingo extends Application
 
 		$this->render();
 	}
-
+	
 }
