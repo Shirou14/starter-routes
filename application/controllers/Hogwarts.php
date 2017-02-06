@@ -41,5 +41,17 @@ class Hogwarts extends Application
 
 		$this->render();
 	}
+        
+        /**
+         * Random quote page - issue 10
+         */
+        public function random()
+        {
+		$this->data['pagebody'] = 'justone';
+                $count = count($this->quotes->data);
+		$source = $this->quotes->get(rand(0, $count));
+		$this->data = array_merge($this->data, $source);
+		$this->render();	
+        }
 
 }
