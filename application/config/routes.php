@@ -49,6 +49,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'welcome';
-$route['404_override'] = '';
+$route['default_controller'] = 'hogwarts';
+$route['404_override'] = 'hogwarts/random';
 $route['translate_uri_dashes'] = FALSE;
+// Routes to the shucks function in Welcome.php
+$route['lock/(:any)/(:any)'] = 'hogwarts/shucks';
+// Routes to the zzz function in First.php
+$route['sleep'] = 'first/zzz';
+$route['([A-Za-z]{4})/bingo'] = 'bingo/index';
+// Routes to the gimmie function in First.php and takes the num
+// from the parametrs in the html page, passing to parameter $1
+$route['show/(:num)'] = 'first/gimmie/$1';
+$route['dunno'] = function() {
+	$source = '../data/archer.png'; // an image you provide, outside of "public"!
+	// set the mime type for that image (jpeg, png, etc)
+	header("Content-type: image/png"); 
+	header('Content-Disposition: inline');
+	readfile($source); // dish it
+	die(); // and we don't have to go any further
+};
+$route['comp(:num)/(:any)'] = 'wise/bingo';                         
+?>
