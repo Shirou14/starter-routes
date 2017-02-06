@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends Application
+class Hogwarts extends Application
 {
 
 	function __construct()
@@ -41,5 +41,17 @@ class Welcome extends Application
 
 		$this->render();
 	}
+        
+        /**
+         * Random quote page - issue 10
+         */
+        public function random()
+        {
+		$this->data['pagebody'] = 'justone';
+                $count = count($this->quotes->data);
+		$source = $this->quotes->get(rand(0, $count));
+		$this->data = array_merge($this->data, $source);
+		$this->render();	
+        }
 
 }
